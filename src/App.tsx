@@ -165,37 +165,37 @@ export default function App() {
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white border-b-2 border-brand p-6 flex justify-between items-center">
-        <motion.div 
+        <motion.div
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           className="flex items-center gap-3"
         >
-          <img 
-            src="/logo.png" 
-            alt="Logo" 
+          <img
+            src="/logo.png"
+            alt="Logo"
             className="w-14 h-14 md:w-14 md:h-14 object-contain"
             referrerPolicy="no-referrer"
           />
           <h1 className="text-xl border-3 border-brand md:text-xl font-mono font-black tracking-tighter bg-brand text-white px-0 py-2 rotate-[-10deg] overflow-hidden whitespace-nowrap w-[140px] flex items-center relative">
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ 
-                duration: 4, 
-                repeat: Infinity, 
+              transition={{
+                duration: 4,
+                repeat: Infinity,
                 ease: (t) => Math.floor(t * 12) / 12
               }}
               className="flex whitespace-nowrap"
             >
-              <span className="inline-block">UX/UI LIST&nbsp;&nbsp;</span>
-              <span className="inline-block">UX/UI LIST&nbsp;&nbsp;</span>
+              <span className="inline-block">UX/UI REPO&nbsp;&nbsp;</span>
+              <span className="inline-block">UX/UI REPO&nbsp;&nbsp;</span>
             </motion.div>
           </h1>
         </motion.div>
-        
+
         <nav className="hidden md:block">
           <ul className="flex gap-8 text-sm font-bold items-center">
             <li>
-              <button 
+              <button
                 onClick={() => setIsAboutOpen(true)}
                 className="hover:underline underline-offset-2 decoration-2 cursor-pointer"
               >
@@ -203,7 +203,7 @@ export default function App() {
               </button>
             </li>
             <li>
-              <button 
+              <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
                 className="p-2 border-2 cursor-pointer border-brand hover:bg-brand hover:text-white transition-all flex items-center justify-center"
                 title={isDarkMode ? "Modo Claro" : "Modo Escuro"}
@@ -227,7 +227,7 @@ export default function App() {
               onClick={() => setIsAboutOpen(false)}
               className="fixed inset-0 bg-black/40 z-[60] backdrop-blur-sm"
             />
-            
+
             {/* Modal Panel */}
             <motion.div
               initial={{ x: "100%" }}
@@ -240,7 +240,7 @@ export default function App() {
                 <h2 className="text-4xl md:text-6xl font-black tracking-tighter bg-brand text-white px-6 py-2 rotate-[-2deg] inline-block">
                   SOBRE O PROJETO
                 </h2>
-                <button 
+                <button
                   onClick={() => setIsAboutOpen(false)}
                   className="p-2 hover:bg-brand hover:text-white transition-colors border-4 border-brand"
                 >
@@ -252,7 +252,7 @@ export default function App() {
                 <p className="border-l-8 border-brand pl-6 py-2">
                   O <span className="text-brand">UX/UI LIST</span> NASCEU DA NECESSIDADE DE CENTRALIZAR O CAOS DE INFORMAÇÃO QUE EXISTE NA ÁREA DE DESIGN.
                 </p>
-                
+
                 <p>
                   SOU UM DESIGNER QUE ACREDITA QUE O ACESSO AO CONHECIMENTO DEVE SER DIRETO, BRUTALISTA E SEM FRICÇÃO. ESTA LISTA É UMA CURADORIA PESSOAL DOS MELHORES MATERIAIS QUE ME AJUDARAM E CONTINUAM AJUDANDO NA JORNADA.
                 </p>
@@ -288,9 +288,8 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className={`resource-row ${
-              resource.dark ? "bg-brand text-white" : index % 2 === 1 ? "bg-accent" : "bg-white"
-            }`}
+            className={`resource-row ${resource.dark ? "bg-brand text-white" : index % 2 === 1 ? "bg-accent" : "bg-white"
+              }`}
           >
             <div className="w-full md:w-2/3">
               <span className={`font-bold block mb-2 text-[10px] ${resource.dark ? "text-white" : "text-brand"}`}>
@@ -299,21 +298,19 @@ export default function App() {
               <h2 className="font-black leading-none break-words text-xl mb-4 tracking-tighter">
                 {resource.title}
               </h2>
-              <p className={`max-w-2xl border-l-4 pl-4 hidden md:block text-xs font-medium ${
-                resource.dark ? "border-white text-zinc-300" : "border-brand text-brand"
-              }`}>
+              <p className={`max-w-2xl border-l-4 pl-4 hidden md:block text-xs font-medium ${resource.dark ? "border-white text-zinc-300" : "border-brand text-brand"
+                }`}>
                 {resource.description}
               </p>
             </div>
-            
+
             <div className="w-full md:w-1/3 flex justify-end mt-8 md:mt-0">
               <a
                 href={resource.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`access-btn text-sm md:text-base ${
-                  resource.dark ? "bg-white text-brand border-white hover:bg-zinc-200" : ""
-                }`}
+                className={`access-btn text-sm md:text-base ${resource.dark ? "bg-white text-brand border-white hover:bg-zinc-200" : ""
+                  }`}
               >
                 ACESSAR
               </a>
@@ -331,7 +328,7 @@ export default function App() {
           >
             © {new Date().getFullYear()} UX LIST — TODOS OS DIREITOS RESERVADOS
           </motion.span>
-          
+
           <div className="flex flex-wrap justify-center gap-6">
             <FooterLink icon={<Twitter size={16} />} label="TWITTER" href="#" />
             <FooterLink icon={<Dribbble size={16} />} label="DRIBBBLE" href="#" />
@@ -345,8 +342,8 @@ export default function App() {
 
 function FooterLink({ icon, label, href }: { icon: ReactNode; label: string; href: string }) {
   return (
-    <a 
-      href={href} 
+    <a
+      href={href}
       className="flex items-center gap-2 hover:bg-brand hover:text-white px-3 py-1 transition-colors"
     >
       {icon}
