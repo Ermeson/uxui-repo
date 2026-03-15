@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+@theme {
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-brand: var(--brand-color, #ed1c24);
+  --color-accent: var(--accent-color, #fffbeb); /* amber-50 default */
+}
+
+:root {
+  --brand-color: #ed1c24;
+  --accent-color: #fffbeb;
+}
+
+[data-theme='dark'] {
+  --brand-color: #000000;
+  --accent-color: #f4f4f5; /* zinc-100/gray */
+}
+
+@layer base {
+  body {
+    @apply bg-white text-brand font-mono uppercase selection:bg-brand selection:text-white;
+  }
+
+  /* Brutalist reset: No rounded corners */
+  * {
+    border-radius: 0 !important;
+  }
+}
+
+@layer components {
+  .brutalist-border {
+    @apply border-brand;
+  }
+  
+  .access-btn {
+    @apply border-2 border-brand bg-white text-brand font-bold transition-all duration-100 ease-in-out px-6 py-3 relative;
+  }
+
+  .access-btn:hover {
+    @apply bg-brand text-white -translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_var(--color-brand)];
+  }
+
+  .access-btn:active {
+    @apply translate-x-0 translate-y-0 shadow-none;
+  }
+
+  .resource-row {
+    @apply border-b-2 border-brand flex flex-col md:flex-row items-center px-6 md:px-12 py-8 transition-colors duration-200;
+  }
+}
