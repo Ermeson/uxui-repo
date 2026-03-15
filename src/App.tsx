@@ -6,6 +6,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Layout, Twitter, Linkedin, Dribbble, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect, type ReactNode } from "react";
+import logo from "../logo.png";
 
 interface Resource {
   id: string;
@@ -171,7 +172,7 @@ export default function App() {
           className="flex items-center gap-3"
         >
           <img
-            src="/logo.png"
+            src={logo}
             alt="Logo"
             className="w-14 h-14 md:w-14 md:h-14 object-contain"
             referrerPolicy="no-referrer"
